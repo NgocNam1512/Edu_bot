@@ -2,55 +2,39 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
-    triggers: action_greet
-- ask_fee
-- ask_food
-- inform
+- greet
+- ask_fee_tutor
+- ask_menu
+- ask_so_lop_tuyen_sinh
+- ask_diem_chuan
+- ask_about_child
+- ask_diem_hang_ngay
+- ask_diem_giua_ki
+- ask_diem_cuoi_ki
 - thanks
 - goodbye
-- contact_inform
 - confirm
-- need_explain
-- out_of_scope
-entities:
-- student_name
-- student_id
-slots:
-  requested_slot:
-    type: categorical
-    values:
-    - student_name
-    - student_id
-  student_id:
-    type: unfeaturized
-  student_name:
-    type: unfeaturized
+
 responses:
   utter_greet:
-  - text: Xin chào, đây là Trường....
-  utter_return_fee:
-  - text: Học phí của em ... là 1.000.000Đ
+  - text: Xin chào, đây là Trường tiểu học AAA.
   utter_return_menu:
-  - text: 'Menu hôm nay gồm: - món 1 - món 2 - món 3'
+  - text: 'Thực đơn hôm nay gồm: \n- món 1 \n- món 2 \n- món 3'
   utter_welcome:
   - text: Không có gì ạ.
   utter_goodbye:
   - text: Bye
-  utter_ask_student_name:
-  - text: Bác là phụ huynh của bạn nào ạ?
-  utter_ask_student_id:
-  - text: Mã học sinh của bạn ấy là gì ạ?
-  utter_ask_to_continue_form:
-  - text: Cô muốn tiếp tục điền đơn không ạ
-  utter_explain_name:
-  - text: Giải thích tên học sinh
-  utter_explain_id:
-  - text: Giải thích id học sinh
-  utter_out_of_scope:
-  - text: Xin lỗi tôi không hiểu ý bạn
-actions:
-- respond_fee
-- action_greet
-forms:
-- student_form
+  utter_return_fee_tutor:
+  - text: Học phí của cháu là 10.000.000VNĐ.
+  utter_return_so_lop_tuyen_sinh:
+  - text: Năm nay trường tuyển sinh x lớp
+  utter_return_diem_chuan:
+  - text: Điểm chuẩn của trường là x 
+  utter_return_ask_about_child:
+  - text: Hôm nay cháu ... (nhận xét hàng ngày của giáo viên)
+  utter_return_diem_hang_ngay:
+  - text: Hôm nay học sinh A có điểm miệng môn x là y
+  utter_return_diem_giua_ki:
+  - text: "Điểm giữa kì các môn lần lượt là: \n+ Môn 1: 6\n+ Môn 2: 9\n+ ..."
+  utter_return_diem_cuoi_ki:
+  - text: "Điểm cuối kì các môn lần lượt là: \n+ Môn 1: 6\n+ Môn 2: 9\n+ ..."

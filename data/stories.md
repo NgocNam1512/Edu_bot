@@ -1,80 +1,43 @@
-## path 1
-* ask_fee
-  - utter_return_fee
+## greet
+* greet
+  - utter_greet
 
-## path 2
-* ask_food
-  - utter_return_menu
-* goodbye
-  - utter_goodbye
-
-## path 3
-* ask_food
-  - utter_return_menu
+## thanks
 * thanks
   - utter_welcome
+
+## goodbye
 * goodbye
   - utter_goodbye
 
-## happy path 2
-* ask_fee
-  - utter_return_fee
-* ask_food
+## ask free tutor
+* ask_fee_tutor
+  - utter_return_fee_tutor
+
+## ask menu
+* ask_menu
   - utter_return_menu
-* thanks
-  - utter_welcome
-* goodbye
-  - utter_goodbye
 
-## say goodbye
-* goodbye
-  - utter_goodbye
+## ask_so_lop_tuyen_sinh
+* ask_so_lop_tuyen_sinh
+  - utter_return_so_lop_tuyen_sinh
 
-## ask fee
-* ask_fee
-  - respond_fee
+## ask_diem_chuan
+* ask_diem_chuan
+  - utter_return_diem_chuan
 
-## student form
-* contact_inform
-  - student_form   <!--Run the form action-->
-  - form{"name": "student_form"} <!--Activate form-->
-  - form{"name": null}  <!--Deactivate form-->
+## ask_about_child
+* ask_about_child
+  - utter_return_ask_about_child
 
-## student form2
-* contact_inform
-  - student_form   <!--Run the form action-->
-  - form{"name": "student_form"} <!--Activate form-->
-* ask_fee
-  - respond_fee
-  - utter_ask_to_continue_form
-* confirm
-  - student_form
-  - form{"name": null}
+## ask_diem_hang_ngay
+* ask_diem_hang_ngay
+  - utter_return_diem_hang_ngay
 
-## explain name
-* contact_inform
-  - student_form
-  - form{"name": "student_form"}
-  - slot{"requested_slot": "student_name"}
-* need_explain
-  - utter_explain_name
-  - utter_ask_to_continue_form
-* confirm
-  - student_form
-  - form{"name": null}
+## ask_diem_giua_ki
+* ask_diem_giua_ki
+  - utter_return_diem_giua_ki
 
-## explain name
-* contact_inform
-  - student_form
-  - form{"name": "student_form"}
-  - slot{"requested_slot": "student_id"}
-* need_explain
-  - utter_explain_id
-  - utter_ask_to_continue_form
-* confirm
-  - student_form
-  - form{"name": null}
-
-## out of scope
-* out_of_scope
-  - utter_out_of_scope
+## ask_diem_cuoi_ki
+* ask_diem_cuoi_ki
+  - utter_return_diem_cuoi_ki
