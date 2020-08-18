@@ -14,36 +14,19 @@ from rasa_sdk.events import UserUtteranceReverted, EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 
-class StudentForm(FormAction):
-    """Collect student info and add to somewhere"""
+from pymongo import MongoClient
+client = MongoClient(port=27017)
+db = client.test
 
+class TestMogoDB(Action):
+    """Test mongo db"""
     def name(self):
-        return "student_form"
+        return "action_test_mongodb"
 
-    @staticmethod
-    def required_slots(tracker):
-        return [
-            "student_name",
-            "student_id",
-        ]
-    
-    def submit(
-            self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
-        ) -> List[Dict]:
-
-        dispatcher.utter_message("Cảm ơn cô/ chú đã điền thoong tin")
-        # need another action
-        return []
-
-class ActionGreetUser(Action):
-    """Revertible mapped action for utter_greet"""
-
-    def name(self):
-        return "action_greet"
-    
     def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_template("utter_greet", tracker)
-        return [UserUtteranceReverted()]
+        #db.inventory.insert({"name":"rasa"})
+        results = db.inventory.find({"status":"D"}, {"_id":0, "item":1})
+        for result in results:
+            print(result['item'])
+        dispatcher.utter_message("Inserted to mongodb")
+        return[]

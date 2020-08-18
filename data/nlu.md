@@ -104,3 +104,7 @@
 - Dĩ nhiên
 - có chứ
 - có
+
+## intent:test_mongodb
+- mongodb
+- test mongodb

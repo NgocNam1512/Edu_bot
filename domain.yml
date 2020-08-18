@@ -14,6 +14,7 @@ intents:
 - thanks
 - goodbye
 - confirm
+- test_mongodb
 
 responses:
   utter_greet:
@@ -38,3 +39,6 @@ responses:
   - text: "Điểm giữa kì các môn lần lượt là: \n+ Môn 1: 6\n+ Môn 2: 9\n+ ..."
   utter_return_diem_cuoi_ki:
   - text: "Điểm cuối kì các môn lần lượt là: \n+ Môn 1: 6\n+ Môn 2: 9\n+ ..."
+
+actions:
+- action_test_mongodb
