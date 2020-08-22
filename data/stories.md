@@ -1,6 +1,7 @@
 ## greet
 * greet
   - utter_greet
+  - utter_show_feature
 
 ## thanks
 * thanks
@@ -9,6 +10,10 @@
 ## goodbye
 * goodbye
   - utter_goodbye
+
+## bot_challenge
+* bot_challenge
+  - utter_show_feature
 
 ## ask free tutor
 * ask_fee_tutor

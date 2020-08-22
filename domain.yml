@@ -3,6 +3,7 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - greet
+- bot_challenge
 - ask_fee_tutor
 - ask_menu
 - ask_so_lop_tuyen_sinh
@@ -15,10 +16,36 @@ intents:
 - goodbye
 - confirm
 - test_mongodb
-
+entities:
+- fee_tutor
+- menu
+- classes_number
+- tuyen_sinh
+- score
+- attitude
+- score_type
+- time
+slots:
+  score_type:
+    type: categorical
+    values:
+    - daily
+    - mid-term
+    - end-term
+  time:
+    type: text
 responses:
   utter_greet:
   - text: Xin chào, đây là Trường tiểu học AAA.
+  utter_show_feature:
+  - buttons:
+    - payload: Thực đơn hôm nay
+      title: Thực đơn hôm nay
+    - payload: Điểm hôm nay
+      title: Điểm hôm nay
+    - payload: Bé ở lớp thế nào
+      title: Bé ở lớp thế nào
+    text: Tôi là Edubot. Tôi có thể giúp gì cho bạn?
   utter_return_menu:
   - text: 'Thực đơn hôm nay gồm: \n- món 1 \n- món 2 \n- món 3'
   utter_welcome:
@@ -30,7 +57,7 @@ responses:
   utter_return_so_lop_tuyen_sinh:
   - text: Năm nay trường tuyển sinh x lớp
   utter_return_diem_chuan:
-  - text: Điểm chuẩn của trường là x 
+  - text: Điểm chuẩn của trường là x
   utter_return_ask_about_child:
   - text: Hôm nay cháu ... (nhận xét hàng ngày của giáo viên)
   utter_return_diem_hang_ngay:
@@ -39,6 +66,7 @@ responses:
   - text: "Điểm giữa kì các môn lần lượt là: \n+ Môn 1: 6\n+ Môn 2: 9\n+ ..."
   utter_return_diem_cuoi_ki:
   - text: "Điểm cuối kì các môn lần lượt là: \n+ Môn 1: 6\n+ Môn 2: 9\n+ ..."
-
+  utter_not_understand:
+  - text: Xin lỗi, tôi chưa hiểu bạn muốn gì. Xin hãy nhập lại.
 actions:
 - action_test_mongodb
