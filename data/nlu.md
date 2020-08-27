@@ -49,7 +49,7 @@
 - [Số lớp](classes_number) [tuyển sinh](tuyen_sinh)
 - [Tuyển sinh](tuyen_sinh) [bao nhiêu lớp](classes_number)?
 
-## intent:ask_diem_chuan
+## intent:ask_diem_tuyen_sinh
 - [Điểm](score) [chuẩn](tuyen_sinh) năm nay thế nào?
 - Năm nay [điểm](score) [chuẩn](tuyen_sinh) bao nhiêu?
 - [Điểm](score) [chuẩn](tuyen_sinh) năm nay bao nhiêu thế?
@@ -73,24 +73,21 @@
 - Hôm nay cháu có [quấy](attitude) không?
 - Bé ở lớp thế nào?
 
-## intent:ask_diem_hang_ngay
+## intent:ask_score
 - Hôm nay con tôi có [điểm](score) gì không?
 - [Điểm](score) hôm nay 
-- [Điểm](score) [miệng](score_type)
+- [Điểm](score) [miệng](daily_score) môn [Vật lý](subject)
 - [Điểm](score) ngày hôm nay
-- [Điểm](score) hàng ngày
-
-## intent:ask_diem_giua_ki
-- [Điểm](score) kiểm tra [giữa kỳ](score_type)
-- [Điểm](score) kiểm tra [giữa kì](score_type) của con tôi là bao nhiêu?
-- [Điểm](score) kiểm tra [giữa kỳ](score_type) của con tôi
-- [Điểm](score) [giữa kì](score_type)
-
-## intent:ask_diem_cuoi_ki
-- [Điểm](score) kiểm tra [cuối kỳ](score_type)
-- [Điểm](score) kiểm tra [cuối kỳ](score_type) của con tôi là bao nhiêu?
-- [Điểm](score) kiểm tra [cuối kì](score_type) của con tôi
-- [Điểm](score) [cuối kỳ](score_type)
+- [Điểm](score) hàng ngày môn [Hóa học](subject)
+- [Điểm](score) kiểm tra [giữa kỳ](mid_score)
+- [Điểm](score) kiểm tra [giữa kì](mid_score) của con tôi là bao nhiêu?
+- [Điểm](score) kiểm tra [giữa kỳ](mid_score) của con tôi
+- [Điểm](score) [giữa kì](mid_score)
+- [Điểm](score) kiểm tra [cuối kỳ](end_score)
+- [Điểm](score) kiểm tra [cuối kỳ](end_score) của con tôi là bao nhiêu?
+- [Điểm](score) kiểm tra [cuối kì](end_score) của con tôi
+- [Điểm](score) [cuối kỳ](end_score) môn [Hóa học](subject) là bao nhiêu
+- [Điểm](score) [cuối kì](end_score) môn [Vật lý](subject) là bao nhiêu?
 
 ## intent:thanks
 - cảm ơn cháu
@@ -116,6 +113,5 @@
 - có chứ
 - có
 
-## intent:test_mongodb
-- mongodb
-- test mongodb
+## intent:give_phone_number
+- [12345678](phone_number)

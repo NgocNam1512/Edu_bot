@@ -28,7 +28,7 @@ action_endpoint:
 tracker_store:
     type: mongod
     url: mongodb://localhost:27017
-    db: test
+    db: eduBotDB
 #    username: <username used for authentication>
 #    password: <password used for authentication>
 

@@ -7,16 +7,15 @@ intents:
 - ask_fee_tutor
 - ask_menu
 - ask_so_lop_tuyen_sinh
-- ask_diem_chuan
+- ask_diem_tuyen_sinh
 - ask_about_child
-- ask_diem_hang_ngay
-- ask_diem_giua_ki
-- ask_diem_cuoi_ki
+- ask_score
 - thanks
 - goodbye
 - confirm
-- test_mongodb
+- give_phone_number
 entities:
+- phone_number
 - fee_tutor
 - menu
 - classes_number
@@ -24,14 +23,22 @@ entities:
 - score
 - attitude
 - score_type
+- daily_score
+- mid_score
+- end_score
+- subject
 - time
 slots:
-  score_type:
-    type: categorical
-    values:
-    - daily
-    - mid-term
-    - end-term
+  phone_number:
+    type: unfeaturized
+  daily_score:
+    type: unfeaturized
+  mid_score:
+    type: unfeaturized
+  end_score:
+    type: unfeaturized
+  subject:
+    type: unfeaturized
   time:
     type: text
 responses:
@@ -69,4 +76,4 @@ responses:
   utter_not_understand:
   - text: Xin lỗi, tôi chưa hiểu bạn muốn gì. Xin hãy nhập lại.
 actions:
-- action_test_mongodb
+- action_give_score
