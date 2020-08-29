@@ -29,13 +29,13 @@ entities:
 - subject
 - time
 slots:
-  phone_number:
-    type: unfeaturized
   daily_score:
+    type: unfeaturized
+  end_score:
     type: unfeaturized
   mid_score:
     type: unfeaturized
-  end_score:
+  phone_number:
     type: unfeaturized
   subject:
     type: unfeaturized
