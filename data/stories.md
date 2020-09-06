@@ -21,7 +21,7 @@
 
 ## ask menu
 * ask_menu
-  - utter_return_menu
+  - action_give_menu
 
 ## ask_so_lop_tuyen_sinh
 * ask_so_lop_tuyen_sinh
@@ -33,13 +33,12 @@
 
 ## ask_about_child
 * ask_about_child
-  - utter_return_ask_about_child
+  - action_give_attitude
 
-## ask_diem_hang_ngay
+## ask_diem
 * ask_score
   - action_give_score
 
-## give_phone_number
+## give phone number
 * give_phone_number
-  - utter_greet
-  - utter_show_feature
+  - utter_have_phone_number

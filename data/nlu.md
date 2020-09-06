@@ -35,7 +35,7 @@
 - Trưa [nay](time) con tôi [ăn gì](menu)
 - [Hôm nay](time) có những [món gì](menu)
 - [Thực đơn](menu) [hôm nay](time)
-- [Hôm nay](time) có [món gì](menu) 
+- [Hôm nay](time) có [món gì](menu)
 - [Ăn gì](menu) trưa [nay](time)
 - [Nay](time) con tôi [ăn gì](menu)
 - [Hôm nay](time) các cháu [ăn gì](menu)?
@@ -115,3 +115,4 @@
 
 ## intent:give_phone_number
 - [12345678](phone_number)
+- số điện thoại là [0352229999](phone_number)
