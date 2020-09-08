@@ -6,20 +6,24 @@ intents:
 - bot_challenge
 - ask_fee_tutor
 - ask_menu
-- ask_so_lop_tuyen_sinh
-- ask_diem_tuyen_sinh
+- tuyen_sinh
 - ask_about_child
 - ask_score
+- ask_timetable
 - thanks
 - goodbye
 - confirm
 - give_phone_number
+- trigger_rephrase
 entities:
 - phone_number
 - fee_tutor
 - menu
 - classes_number
 - tuyen_sinh
+- students_number
+- duration
+- ho_so
 - score
 - attitude
 - score_type
@@ -52,26 +56,28 @@ responses:
       title: Bé ở lớp thế nào
     text: Tôi là Edubot. Tôi có thể giúp gì cho bạn?
   utter_welcome:
-  - text: Không có gì ạ.
+  - text: Không có gì. :))
   utter_goodbye:
-  - text: Bye
-  utter_not_understand:
-  - text: Xin lỗi, tôi chưa hiểu bạn muốn gì. Xin hãy nhập lại.
+  - text: Hẹn gặp lại bạn.
+  utter_ask_rephrase:
+  - text: Xin lỗi, tôi không hiểu ý bạn 🤷. Bạn nhập có thể nhắn lại được không?
+  - text: Tôi không hiểu lắm, bạn có thể diễn đạt lại được không?
+  - text: Tôi xin lỗi vì chưa hiểu ý bạn, bạn có thể diễn đạt lại được không?
+  - text: Tôi chưa chắc là mình đã hiểu ý bạn. Bạn có thể nói lại được không?
 
   utter_ask_phone_number:
   - text: Số điện thoại của bạn là?
   utter_have_phone_number:
   - text: Số điện thoại đã được ghi nhận.
-  utter_return_fee_tutor:
-  - text: Học phí của cháu là 10.000.000VNĐ.
-  utter_return_so_lop_tuyen_sinh:
-  - text: Năm nay trường tuyển sinh x lớp
-  utter_return_diem_chuan:
-  - text: Điểm chuẩn của trường là x
 
 actions:
+- respond_tuyen_sinh
 - action_give_score
 - action_give_menu
 - action_give_attitude
+- action_give_fee
+- action_give_timetable
+- action_default_ask_affirmation
+- action_default_fallback
 forms:
 - phone_form

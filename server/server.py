@@ -45,7 +45,11 @@ def test():
             'message': message
         }
 
-    return "hello"
+    return {
+        'xyz': "http://127.0.0.1:5000/hello/",
+        'abc': "something",
+        'mnpq': "skd"
+    }
 
 
 @app.route("/<int:key>/", methods=['GET', 'PUT', 'DELETE'])

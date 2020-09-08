@@ -17,19 +17,16 @@
 
 ## ask free tutor
 * ask_fee_tutor
-  - utter_return_fee_tutor
+  - action_give_fee
 
 ## ask menu
 * ask_menu
   - action_give_menu
 
-## ask_so_lop_tuyen_sinh
-* ask_so_lop_tuyen_sinh
-  - utter_return_so_lop_tuyen_sinh
+## ask_tuyen_sinh
+* tuyen_sinh
+  - respond_tuyen_sinh
 
-## ask_diem_chuan
-* ask_diem_tuyen_sinh
-  - utter_return_diem_chuan
 
 ## ask_about_child
 * ask_about_child
@@ -42,3 +39,7 @@
 ## give phone number
 * give_phone_number
   - utter_have_phone_number
+
+## ask timetable
+* ask_timetable
+  - action_give_timetable

@@ -25,7 +25,8 @@ policies:
     epochs: 100
   - name: MappingPolicy
   - name: FormPolicy
-  - name: FallbackPolicy
+  - name: TwoStageFallbackPolicy
     nlu_threshold: 0.5
+    ambiguity_threshold: 0.1
     core_threshold: 0.3
-    fallback_action_name: "utter_not_understand"
+    deny_suggestion_intent_name: 'trigger_rephrase'
