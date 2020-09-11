@@ -17,6 +17,30 @@
 - tôi muốn hỏi vài thứ
 - tôi hỏi này
 
+## intent:thanks
+- cảm ơn cháu
+- cảm ơn nha
+- thankyou
+- thank
+- thanks
+
+## intent:goodbye
+- tạm biệt
+- Bye
+- tạm biệt nhé
+- chào tạm biệt
+- bai bai
+
+## intent:confirm
+- Được
+- Uk
+- Ừ
+- Ok
+- Tất nhiên rồi
+- Dĩ nhiên
+- có chứ
+- có
+
 ## intent:ask_fee_tutor
 - tiền [học phí](fee_tutor) là bao nhiêu
 - Hết bao nhiêu [học phí](fee_tutor)
@@ -24,22 +48,26 @@
 - Giá [học phí](fee_tutor)
 
 ## intent:ask_menu
-- Trưa [nay](time) con tôi [ăn gì](menu)
+- Trưa [nay]{"entity": "time", "value": "hôm nay"}
+ con tôi [ăn gì](menu)
 - [Bữa trưa](menu) có những gì
 - con tôi [ăn gì](menu) [hôm nay](time)
 - [thực đơn](menu) [hôm nay](time) có gì
 - [ăn uống](menu) ra sao
 - [ăn trưa](menu)
+- thực đơn [hôm qua](time) gồm những món gì?
+- [Hôm qua]{"entity": "time", "value": "hôm qua"} các cháu ăn gì ở trường?
+- thực đơn ngày [20/7](time)
 - Món [ăn trưa](menu) nay?
-- Trưa [nay](time) con tôi [ăn gì](menu)
-- [Hôm nay](time) có những [món gì](menu)
+- Trưa [nay]{"entity": "time", "value": "hôm nay"} con tôi [ăn gì](menu)
+- [Hôm nay]{"entity": "time", "value": "hôm nay"} có những [món gì](menu)
 - [Thực đơn](menu) [hôm nay](time)
-- [Hôm nay](time) có [món gì](menu)
-- [Ăn gì](menu) trưa [nay](time)
-- [Nay](time) con tôi [ăn gì](menu)
-- [Hôm nay](time) các cháu [ăn gì](menu)?
-- [Hôm qua](time) con tôi [ăn gì](menu)?
-- Ngày [mai](time) [thực đơn](menu) ra sao
+- [Hôm nay]{"entity": "time", "value": "hôm nay"} có [món gì](menu)
+- [Ăn gì](menu) trưa [nay]{"entity": "time", "value": "hôm nay"}
+- [Nay]{"entity": "time", "value": "hôm nay"} con tôi [ăn gì](menu)
+- [Hôm nay]{"entity": "time", "value": "hôm nay"} các cháu [ăn gì](menu)?
+- [Hôm qua]{"entity": "time", "value": "hôm nay"} con tôi [ăn gì](menu)?
+- Ngày [mai]{"entity": "time", "value": "ngày mai"} [thực đơn](menu) ra sao
 
 ## intent:tuyen_sinh/doi_tuong
 - Đối tượng [tuyển sinh](tuyen_sinh) của trường?
@@ -82,23 +110,26 @@
 - Quy định về [hồ sơ](ho_so) của học sinh
 
 ## intent:ask_about_child
-- Hôm nay cháu có [ngoan](attitude) không?
-- Cháu hôm nay có [nghịch](attitude) không?
+- [hôm nay](time) cháu có [ngoan](attitude) không?
+- Cháu [hôm nay](time) có [nghịch](attitude) không?
 - Cháu có [ngủ trưa](attitude) không?
 - Cháu có [quấy khóc](attitude) không?
-- Hôm nay cháu ăn được mấy bát?
-- Cháu hôm nay [ngoan](attitude) không?
-- Cháu hôm nay trên lớp thế nào?
-- Hôm nay trên lớp tình hình cháu thế nào?
+- [hôm nay](time) cháu ăn được mấy bát?
+- Cháu [hôm nay](time) [ngoan](attitude) không?
+- Cháu [hôm nay](time) trên lớp thế nào?
+- [hôm nay](time) trên lớp tình hình cháu thế nào?
 - Nay cháu có [ngủ trưa](attitude) không?
-- Hôm nay cháu có [quấy](attitude) không?
+- [Hôm nay]{"entity": "time", "value": "hôm nay"} cháu có [quấy](attitude) không?
 - Bé ở lớp thế nào?
+- [Hôm qua]{"entity": "time", "value": "hôm qua"} cháu ở lớp học có [ngoan](attitude) không?
+- hôm nay con tôi thế nào?
+- Hôm nay con tôi thế nào?
 
 ## intent:ask_score
-- Hôm nay con tôi có [điểm](score) gì không?
-- [Điểm](score) hôm nay 
+- [hôm nay](time) con tôi có [điểm](score) gì không?
+- [Điểm](score) [hôm nay](time) 
 - [Điểm](score) [miệng](daily_score) môn [Vật lý](subject)
-- [Điểm](score) ngày hôm nay
+- [Điểm](score) ngày [hôm nay](time)
 - [Điểm](score) hàng ngày môn [Hóa học](subject)
 - [Điểm](score) kiểm tra [giữa kỳ](mid_score)
 - [Điểm](score) kiểm tra [giữa kì](mid_score) của con tôi là bao nhiêu?
@@ -111,39 +142,23 @@
 - [Điểm](score) [cuối kì](end_score) môn [Vật lý](subject) là bao nhiêu?
 
 ## intent:ask_timetable
-- Thời khóa biểu
-- Thời khóa biểu ngày mai
-- Thời khóa biểu mai thế nào
-- Mai con tôi học những gì
-- Ngày mai con tôi học môn gì
-- Ngày mai lớp con tôi có những môn gì
-- Thời khóa biểu ngày mai có những môn gì
-- thời khóa biểu
-
-## intent:thanks
-- cảm ơn cháu
-- cảm ơn nha
-- thankyou
-- thank
-- thanks
-
-## intent:goodbye
-- tạm biệt
-- Bye
-- tạm biệt nhé
-- chào tạm biệt
-- bai bai
-
-## intent:confirm
-- Được
-- Uk
-- Ừ
-- Ok
-- Tất nhiên rồi
-- Dĩ nhiên
-- có chứ
-- có
+- [Thời khóa biểu](timetable)
+- [Thời khóa biểu](timetable) [ngày mai](time)
+- [Thời khóa biểu](timetable) mai thế nào
+- [Mai]{"entity": "time", "value": "ngày mai"} con tôi học những gì
+- [ngày mai](time) con tôi học môn gì
+- [hôm qua](time) lớp con tôi có những môn gì
+- [Thời khóa biểu](timetable) [ngày mai](time) có những môn gì
+- [thời khóa biểu](timetable) ngày [18/9](time)
+- ngày [20/9](time) con tôi học những môn gì?
+- [thời khóa biểu](timetable) ngày [hôm qua](time)
 
 ## intent:give_phone_number
 - [12345678](phone_number)
 - số điện thoại là [0352229999](phone_number)
+
+## regex:phone_number
+- 0[0-9]{9}
+
+## lookup:time
+data/time.txt

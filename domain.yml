@@ -31,6 +31,7 @@ entities:
 - mid_score
 - end_score
 - subject
+- timetable
 - time
 slots:
   daily_score:
@@ -64,12 +65,10 @@ responses:
   - text: Tôi không hiểu lắm, bạn có thể diễn đạt lại được không?
   - text: Tôi xin lỗi vì chưa hiểu ý bạn, bạn có thể diễn đạt lại được không?
   - text: Tôi chưa chắc là mình đã hiểu ý bạn. Bạn có thể nói lại được không?
-
   utter_ask_phone_number:
   - text: Số điện thoại của bạn là?
   utter_have_phone_number:
   - text: Số điện thoại đã được ghi nhận.
-
 actions:
 - respond_tuyen_sinh
 - action_give_score

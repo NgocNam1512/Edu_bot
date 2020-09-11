@@ -1,5 +1,6 @@
 from typing import Any, Text, Dict, List
 import datetime
+import json
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import (
@@ -13,6 +14,21 @@ from rasa_sdk.forms import FormAction
 from pymongo import MongoClient
 client = MongoClient(port=27017)
 db = client.eduBotDB
+
+def time_preprocess(time):
+    if time == "ngày mai":
+        date = datetime.date.today() + datetime.timedelta(days = 1)
+    elif time == "hôm qua":
+        date = datetime.date.today() - datetime.timedelta(days = 1)
+    elif time == "hôm nay":
+        date = datetime.date.today()
+    else:
+        for c in ['-', '/', '.']:
+            if c in time:
+                time_arr = time.split(c)
+        (day, month) = time_arr[:2]
+        date = datetime.date(2020, int(month), int(day))
+    return date
 
 class PhoneNumberForm(FormAction):
     def name(self):
@@ -115,12 +131,13 @@ class ActionGiveMenu(Action):
         return "action_give_menu"
 
     def run(self, dispatcher, tracker, domain):
-        today = datetime.datetime.now().date()
+        time = tracker.get_slot("time")
+        date = time_preprocess(time)
         menu_list = db.menu.find({}, {"date":1, "meal":1})
         foods = []
-        message = "Thực đơn hôm nay gồm:\n"
+        message = f"Thực đơn {time} gồm:\n"
         for menu in menu_list:
-            if (menu['date']).date() == today:
+            if (menu['date']).date() == date:
                 for food in menu['meal']:
                     message += f" - {food}\n"
 
