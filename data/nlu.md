@@ -31,16 +31,6 @@
 - chào tạm biệt
 - bai bai
 
-## intent:confirm
-- Được
-- Uk
-- Ừ
-- Ok
-- Tất nhiên rồi
-- Dĩ nhiên
-- có chứ
-- có
-
 ## intent:ask_fee_tutor
 - tiền [học phí](fee_tutor) là bao nhiêu
 - Hết bao nhiêu [học phí](fee_tutor)
@@ -69,7 +59,7 @@
 - [Hôm qua]{"entity": "time", "value": "hôm nay"} con tôi [ăn gì](menu)?
 - Ngày [mai]{"entity": "time", "value": "ngày mai"} [thực đơn](menu) ra sao
 
-## intent:tuyen_sinh/doi_tuong
+## intent:tuyen_sinh_doi_tuong
 - Đối tượng [tuyển sinh](tuyen_sinh) của trường?
 - Trưởng [tuyển](tuyen_sinh) những đối tượng nào?
 - Học sinh ở Cầu Giấy có được học không?
@@ -78,14 +68,14 @@
 - Trường [tuyển](tuyen_sinh) học sinh ở đâu?
 - Trường tuyển đối tượng học sinh nào
 
-## intent:tuyen_sinh/thoi_gian_cach_thuc
+## intent:tuyen_sinh_thoi_gian_cach_thuc
 - [Thời gian](duration) [tuyển sinh](students_number) là khi nào?
 - [thời gian](duration) [tuyển sinh](students_number)
 - Đăng kí [tuyển sinh](students_number) vào lúc nào?
 - Bao giờ thì hết [hạn](duration) [tuyển sinh](students_number)?
 - [Thời hạn](duration) [tuyển sinh](students_number)?
 
-## intent:tuyen_sinh/so_luong
+## intent:tuyen_sinh_so_luong
 - Trường [tuyển](tuyen_sinh) [bao nhiêu học sinh](students_number) ?
 - trường tuyển bao nhiêu học sinh năm nay
 - năm nay trường tuyển bao nhiêu học sinh
@@ -101,7 +91,7 @@
 - số lớp [tuyển sinh](tuyen_sinh)
 - trường tuyển bao nhiêu học sinh
 
-## intent:tuyen_sinh/ho_so
+## intent:tuyen_sinh_ho_so
 - [Hồ sơ](ho_so) [tuyển sinh](tuyen_sinh)
 - [Hồ sơ](ho_so) [tuyển sinh](tuyen_sinh) bao gồm những gì?
 - Cần chuẩn bị [hồ sơ](ho_so) gồm những gì

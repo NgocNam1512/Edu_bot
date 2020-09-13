@@ -1,6 +1,6 @@
 ## greet
 * greet
-  - utter_greet
+  - action_get_phone_number
   - utter_show_feature
 
 ## thanks
@@ -23,10 +23,21 @@
 * ask_menu
   - action_give_menu
 
-## ask_tuyen_sinh
-* tuyen_sinh
-  - respond_tuyen_sinh
+## tuyen_sinh_doi_tuong
+* tuyen_sinh_doi_tuong
+  - utter_tuyen_sinh_doi_tuong
 
+## tuyen_sinh_thoi_gian_cach_thuc
+* tuyen_sinh_thoi_gian_cach_thuc
+  - utter_tuyen_sinh_thoi_gian_cach_thuc
+
+## tuyen_sinh_so_luong
+* tuyen_sinh_so_luong
+  - utter_tuyen_sinh_so_luong
+
+## tuyen_sinh_ho_so
+* tuyen_sinh_ho_so
+  - utter_tuyen_sinh_ho_so
 
 ## ask_about_child
 * ask_about_child

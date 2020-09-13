@@ -72,6 +72,17 @@ class PhoneNumberForm(FormAction):
         dispatcher.utter_message("Số điện thoại đã được ghi nhận. Bạn cần tôi giúp gì?")
         return []
 
+class ActionGetPhoneNumber(Action):
+    def name(self):
+        return "action_get_phone_number"
+
+    def run(self, dispatcher, tracker, domain):
+        phone_number = tracker.current_state()['sender_id']
+        dispatcher.utter_message(template='utter_greet')
+        if len(phone_number) < 12:
+            return[SlotSet("phone_number", phone_number)]
+        return []
+
 class ActionGiveScore(Action):
     def name(self):
         return "action_give_score"
@@ -194,9 +205,9 @@ class ActionGiveTimetable(Action):
             message = "Ngày mai không có môn học nào."
             if len(morning_subjects) > 0 and len(afternoon_subjects) > 0:
                 message = "Sáng mai có các môn: "
-                message += " ,".join([subject for subject in morning_subjects])
+                message += ", ".join([subject for subject in morning_subjects])
                 message += "\nChiều mai có các môn: "
-                message += " ,".join([subject for subject in afternoon_subjects])
+                message += ", ".join([subject for subject in afternoon_subjects])
 
             dispatcher.utter_message(message)
             return []
@@ -314,7 +325,7 @@ class ActionDefaultFallback(Action):
         #         print(event.get('name'))
             
         #     dispatcher.utter_message(template="utter_restart_with_button")
-            dispatcher.utter_message("Sorry, I will forward your message on to the manager.")
+            dispatcher.utter_message("Hiện tại tôi chưa hiểu ý của bạn. Bạn vui lòng đợi giáo viên trả lời.")
 
             return []
 
