@@ -262,7 +262,7 @@ class ActionDefaultAskAffirmation(Action):
         ]
 
         message_title = (
-            "Sorry, I'm not sure I've understood " "you correctly 🤔 Do you mean..."
+            "Xin lỗi, tôi không tự tin mình hiểu ý bạn 🤔 Ý của bạn là ..."
         )
 
         entities = tracker.latest_message.get("entities", [])
