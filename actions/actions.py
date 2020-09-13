@@ -12,8 +12,9 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 
 from pymongo import MongoClient
-client = MongoClient(port=27017)
-db = client.eduBotDB
+import dns
+client = MongoClient('mongodb+srv://admin:admin-password@cluster0.cgpcq.mongodb.net/eduBot')
+db = client.eduBot
 
 def time_preprocess(time):
     if time == "ngày mai":

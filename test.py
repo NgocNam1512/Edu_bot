@@ -1,7 +1,9 @@
 import datetime
 from pymongo import MongoClient
-client = MongoClient(port=27017)
-db = client.eduBotDB
+import dns
+
+client = MongoClient('mongodb+srv://admin:admin-password@cluster0.cgpcq.mongodb.net/eduBot')
+db = client.eduBot
 
 date = datetime.date.today()
 tomorrow = date + datetime.timedelta(days = 1)
