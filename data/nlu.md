@@ -118,9 +118,9 @@
 ## intent:ask_score
 - [hôm nay](time) con tôi có [điểm](score) gì không?
 - [Điểm](score) [hôm nay](time) 
-- [Điểm](score) [miệng](daily_score) môn [Vật lý](subject)
+- [Điểm](score) [miệng](daily_score) môn [Tiếng anh]{"entity": "subject", "value": "Anh Văn"}
 - [Điểm](score) ngày [hôm nay](time)
-- [Điểm](score) hàng ngày môn [Hóa học](subject)
+- [Điểm](score) hàng ngày môn [Anh Văn](subject)
 - [Điểm](score) kiểm tra [giữa kỳ](mid_score)
 - [Điểm](score) kiểm tra [giữa kì](mid_score) của con tôi là bao nhiêu?
 - [Điểm](score) kiểm tra [giữa kỳ](mid_score) của con tôi
@@ -128,8 +128,10 @@
 - [Điểm](score) kiểm tra [cuối kỳ](end_score)
 - [Điểm](score) kiểm tra [cuối kỳ](end_score) của con tôi là bao nhiêu?
 - [Điểm](score) kiểm tra [cuối kì](end_score) của con tôi
-- [Điểm](score) [cuối kỳ](end_score) môn [Hóa học](subject) là bao nhiêu
-- [Điểm](score) [cuối kì](end_score) môn [Vật lý](subject) là bao nhiêu?
+- [Điểm](score) [cuối kỳ](end_score) môn [Toán](subject) là bao nhiêu
+- [Điểm](score) [cuối kì](end_score) môn [Tiếng Việt](subject) là bao nhiêu?
+- [Điểm](score) [mỹ thuật]{"entity": "subject", "value": "Mĩ Thuật"}
+- [Điểm](score) môn [anh]{"entity": "subject", "value": "Anh Văn"}
 
 ## intent:ask_timetable
 - [Thời khóa biểu](timetable)
@@ -152,3 +154,6 @@
 
 ## lookup:time
 data/time.txt
+
+## lookup:subject
+data/subjects.txt
