@@ -114,6 +114,10 @@
 - [Hôm qua]{"entity": "time", "value": "hôm qua"} cháu ở lớp học có [ngoan](attitude) không?
 - hôm nay con tôi thế nào?
 - Hôm nay con tôi thế nào?
+- nhận xét của giáo viên
+- Nhận xét của giáo viên về con tôi
+- xem nhận xét giáo viên
+- [hôm nay](time) cháu có [tập trung](attitude) học bài không
 
 ## intent:ask_score
 - [hôm nay](time) con tôi có [điểm](score) gì không?
@@ -132,6 +136,7 @@
 - [Điểm](score) [cuối kì](end_score) môn [Tiếng Việt](subject) là bao nhiêu?
 - [Điểm](score) [mỹ thuật]{"entity": "subject", "value": "Mĩ Thuật"}
 - [Điểm](score) môn [anh]{"entity": "subject", "value": "Anh Văn"}
+- [Điểm](score) [miệng](daily_score) ngày [18/9](time)
 
 ## intent:ask_timetable
 - [Thời khóa biểu](timetable)

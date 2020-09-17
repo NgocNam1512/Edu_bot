@@ -121,19 +121,32 @@ class ActionGiveScore(Action):
                 return [SlotSet("end_score", None)]
 
             ## if daily_score
+            time = tracker.get_slot("time")
+            date = time_preprocess(time)
+            message = ""
             if (tracker.get_slot("subject") is not None):
                 subject = tracker.get_slot("subject").capitalize()
-                score = db.dailyScore.find_one({"subject":subject, "student_id":phone_number},{"_id":0, "score":1})
-                message = f"Điểm {subject} hôm nay là {score['score']}"
+                scores = db.dailyScore.find({"subject":subject, "student_id":phone_number},{"score":1, "time":1})
+                
+                for score in scores:
+                    if score['time'].date() == date:
+                        message += f"Điểm {subject} {time} là {score['score']}"                
+                if message == "":
+                    message = f"Điểm môn {subject} ngày {time} không có hoặc chưa được cập nhật."
+                
                 dispatcher.utter_message(message)
-                return [SlotSet("subject", None), SlotSet("daily_score", None)]
+                return [SlotSet("subject", None), SlotSet("daily_score", None), SlotSet("time", "hôm nay")]
             
-            scores = db.dailyScore.find({"student_id":phone_number},{"subject":1, "score":1})
-            message = "Điểm miệng hôm nay:\n"
+            message += f"Điểm ngày {time}:\n"
+            scores = db.dailyScore.find({"student_id":phone_number},{"subject":1, "score":1, "time":1})
             for score in scores:
-                message += f"Môn {score['subject']}: {score['score']}\n"
+                if score['time'].date() == date:
+                    message += f"Môn {score['subject']}: {score['score']}\n"
+            if message == f"Điểm ngày {time}:\n":
+                message = f"Điểm ngày {time} không có hoặc chưa được cập nhật."
             dispatcher.utter_message(message)
-            return [SlotSet("daily_score", None)]
+            
+            return [SlotSet("daily_score", None), SlotSet("time", "hôm nay")]
         else:
             dispatcher.utter_message("Để tra cứu điểm bạn cần cung cấp số điện thoại của mình. Số điện thoại của bạn là?")
         return []
@@ -152,9 +165,11 @@ class ActionGiveMenu(Action):
             if (menu['date']).date() == date:
                 for food in menu['meal']:
                     message += f" - {food}\n"
+        if message == f"Thực đơn {time} gồm:\n":
+            message = f"Thực đơn ngày {time} không có hoặc chưa được cập nhật."
 
         dispatcher.utter_message(message)
-        return []
+        return [SlotSet("time", "hôm nay")]
 
 class ActionGiveFee(Action):
     def name(self):
@@ -174,11 +189,20 @@ class ActionGiveAttitude(Action):
     def run(self, dispatcher, tracker, domain):
         phone_number = tracker.get_slot("phone_number")
         if phone_number is not None:
-            today = datetime.datetime.now().date()
+            message = ""
+            time = tracker.get_slot("time")
+            date = time_preprocess(time)
+
             attitude_list = db.attitude.find({"student_id":phone_number}, {"date":1, "attitude":1})
             for attitude in attitude_list:
-                if attitude['date'].date() == today:
-                    dispatcher.utter_message(f"Nhận xét của giáo viên hôm nay: {attitude['attitude']}")
+                if attitude['date'].date() == date:
+                    message += f"Nhận xét của giáo viên {time}: {attitude['attitude']}\n"
+
+            if message == "":
+                message += f"Không có nhận xét ngày {time} hoặc giáo viên chưa cập nhật."
+
+            dispatcher.utter_message(message)
+            return [SlotSet("time", "hôm nay")]
         else:
             dispatcher.utter_message("Để xem nhận xét của giáo viên bạn cần cung cấp số điện thoại của mình. Số điện thoại của bạn là?")
 
@@ -191,26 +215,38 @@ class ActionGiveTimetable(Action):
     def run(self, dispatcher, tracker, domain):
         phone_number = tracker.get_slot("phone_number")
         if phone_number is not None:
-            today = datetime.date.today()
-            tomorrow = today + datetime.timedelta(days = 1)
-            tomorrow_day = tomorrow.weekday()
+            time = tracker.get_slot("time")
+            date = time_preprocess(time)
+            week_day = date.weekday()
+            if week_day == 5:
+                dispatcher.utter_message(f"Ngày {time} là thứ 7.")
+                return [SlotSet("time", "hôm nay")]
+            if week_day == 6:
+                dispatcher.utter_message(f"Ngày {time} là chủ nhật.")
+                return [SlotSet("time", "hôm nay")]
+
             student = db.students.find_one({"phone":phone_number}, {"class":1})
             class_name = student['class']
             timetable = db.timetable.find_one({"class":class_name}, {"morning":1, "afternoon":1})
             WEEKDAY = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']
             
-            morning_subjects = timetable['morning'][WEEKDAY[tomorrow_day]]
-            afternoon_subjects = timetable['afternoon'][WEEKDAY[tomorrow_day]]
+            morning_subjects = timetable['morning'][WEEKDAY[week_day]]
+            afternoon_subjects = timetable['afternoon'][WEEKDAY[week_day]]
 
-            message = "Ngày mai không có môn học nào."
-            if len(morning_subjects) > 0 and len(afternoon_subjects) > 0:
-                message = "Sáng mai có các môn: "
+            message = ""
+            if morning_subjects != ['']:
+                message += f"Sáng {time} có các môn: "
                 message += ", ".join([subject for subject in morning_subjects])
-                message += "\nChiều mai có các môn: "
+                message += "\n"
+            if afternoon_subjects != ['']:
+                message += f"Chiều {time} có các môn: "
                 message += ", ".join([subject for subject in afternoon_subjects])
 
+            if message == "":
+                message = f"Ngày {time} không có môn học nào."
+
             dispatcher.utter_message(message)
-            return []
+            return [SlotSet("time", "hôm nay")]
         else:
             dispatcher.utter_message("Để xem thời khóa biểu bạn cần cung cấp số điện thoại của mình. Số điện thoại của bạn là?")
 

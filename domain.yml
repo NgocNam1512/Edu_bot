@@ -81,7 +81,6 @@ responses:
   utter_have_phone_number:
   - text: Số điện thoại đã được ghi nhận.
 actions:
-- respond_tuyen_sinh
 - action_get_phone_number
 - action_give_score
 - action_give_menu

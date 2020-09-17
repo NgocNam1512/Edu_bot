@@ -35,6 +35,19 @@ def time_preprocess(time):
         date = datetime.date(2020, int(month), int(day))
     return date
 
-date = time_preprocess("8-9-2020")
-menu = db.menu.find_one({"date":date})
-print(menu)
+# today = datetime.date.today()
+# print(today)
+# tomorrow = today + datetime.timedelta(days = 1)
+# print(tomorrow)
+# print(type(tomorrow))
+# tomorrow_day = tomorrow.weekday()
+# print(tomorrow_day)
+
+time = "15/06"
+date = time_preprocess(time)
+week_day = date.weekday()
+student = db.students.find_one({"phone":"0326882683"}, {"class":1})
+class_name = student['class']
+timetable = db.timetable.find_one({"class":class_name}, {"morning":1, "afternoon":1})
+WEEKDAY = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']
+print(week_day)
